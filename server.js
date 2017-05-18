@@ -12,6 +12,9 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 //    res.render('index.html', { pageCountMessage : null});
 //});
 
+app.engine('html', require('ejs').renderFile);
+app.use(morgan('combined'))
+
 app.get('*', function (req, res) {
     res.render('index.html');
 });
