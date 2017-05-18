@@ -12,7 +12,9 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 //    res.render('index.html', { pageCountMessage : null});
 //});
 
-app.get('*', view.index);
+app.get('*', function (req, rs) {
+    res.render('index.html');
+});
 
 app.listen(port, ip);
 //console.log('Server running on http://%s:%s', ip, port);
